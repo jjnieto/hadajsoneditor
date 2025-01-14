@@ -1,0 +1,92 @@
+{
+    "title": "Activity",
+    "description": "Elements of the activity.",
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "stateName": {
+          "type": "string"
+        },
+        "OutputValues": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "InputValues": {
+          "type": "object",
+          "properties": {
+            "SkipOnStateChange": {
+              "type": "string"
+            },
+            "Prompt": {
+              "type": "string"
+            },
+            "PromptReinforcement": {
+              "type": "string"
+            },
+            "OnEnterShot": {
+              "type": "string"
+            },
+            "UserText": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "Transitions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nextState": {
+                "type": "string"
+              },
+              "conditions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "variableName": {
+                      "type": "string"
+                    },
+                    "expectedValue": {
+                      "type": "string"
+                    },
+                    "conditionType": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": ["variableName", "expectedValue", "conditionType"]
+                }
+              }
+            },
+            "required": ["nextState", "conditions"]
+          }
+        },
+        "OnEnterActions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "OnTriggerActions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "OnExitActions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": ["stateName", "OutputValues", "InputValues", "Transitions", "OnEnterActions", "OnTriggerActions", "OnExitActions"]
+    }
+  }
+  
